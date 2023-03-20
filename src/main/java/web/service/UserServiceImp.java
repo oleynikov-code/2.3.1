@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web.dao.UserDao;
-import web.dao.UserDaoImp;
 import web.models.User;
 
 import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService{
-    private UserDao userDao;
+    private final UserDao userDao;
 
     @Autowired
     public UserServiceImp(UserDao userDao){
@@ -19,14 +18,12 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
     @Override
-    @Transactional
-    public User getUser(int id) {
+    public User getUser(long id) {
         return userDao.getUser(id);
     }
 
@@ -44,7 +41,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     @Transactional
-    public void deleteUser(int id) {
+    public void deleteUser(long id) {
         userDao.deleteUser(id);
     }
 }

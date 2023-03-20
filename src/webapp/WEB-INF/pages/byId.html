@@ -18,11 +18,9 @@
   </div>
 </table>
 <br/>
-<a th:each ="user : ${user_by_id}" th:href="@{/users/{id}/edit(id=${user.getId()})}">Изменить пользователя</a>
-<form th:each ="user : ${user_by_id}" th:href="@{/users/{id}/edit(id=${user.getId()})}">
-  <input type="submit" value="Удалить"/>
+<form th:each ="user : ${user_by_id}" th:action="@{/users/{id}/edit(id=${user.getId()})}">
+  <input type="submit" value="Изменить"/>
 </form>
-<br/>
 <form th:each ="user : ${user_by_id}" th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
   <input type="submit" value="Удалить"/>
 </form>

@@ -10,7 +10,7 @@ public class User {
 @Id
 @Column(name = "id")
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private int id;
+private long id;
 
 @Column(name = "name")
 private String firstName;
@@ -29,7 +29,7 @@ public User(String firstName, String lastName, String email) {
     this.email = email;
 }
 
-public int getId() {
+public long getId() {
     return id;
 }
 

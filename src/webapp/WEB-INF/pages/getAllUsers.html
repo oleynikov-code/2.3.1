@@ -19,5 +19,10 @@
       <td><div><a th:href="@{/users/{id}(id = ${user.getId()})}">Перейти  </a></div></td><tr>
   </div>
 </table>
+<br/>
+<hr/>
+<form th:action="@{/users/new}">
+  <input type="submit" value="Создать"/>
+</form>
 </body>
 </html>

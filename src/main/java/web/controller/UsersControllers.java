@@ -7,19 +7,18 @@ import org.springframework.web.bind.annotation.*;
 import web.models.User;
 import web.service.UserService;
 
-import java.util.ArrayList;
-import java.util.List;
 @Controller
 @RequestMapping("/users")
 public class UsersControllers {
 
-    private UserService userService;
+    private final UserService userService;
+
     @Autowired
     public UsersControllers(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("")
+    @GetMapping()
     public String getAllUser(Model model){
         model.addAttribute("allUsers",userService.getAllUsers());
         return "getAllUsers";
